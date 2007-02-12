@@ -1,5 +1,5 @@
 Summary:	A library for reading and writing Ogg encapsulated data
-Summary(pl):	Biblioteka do odczytu i zapisu danych w opakowaniu Ogg
+Summary(pl.UTF-8):   Biblioteka do odczytu i zapisu danych w opakowaniu Ogg
 Name:		liboggz
 Version:	0.9.5
 Release:	1
@@ -24,20 +24,20 @@ these files. For getting decoding and encoding functionality you will
 require in addition libspeex, libvorbis, libtheora, and libannodex
 respectively.
 
-%description -l pl
-liboggz to biblioteka umoøliwiaj±ca prost± analizÍ i przeszukiwanie
-plikÛw i strumieni opartych na formacie Ogg. liboggz wymaga do
-dzia≥ania biblioteki libogg.
+%description -l pl.UTF-8
+liboggz to biblioteka umo≈ºliwiajƒÖca prostƒÖ analizƒô i przeszukiwanie
+plik√≥w i strumieni opartych na formacie Ogg. liboggz wymaga do
+dzia≈Çania biblioteki libogg.
 
 liboggz wie o formatach Ogg Speex, Ogg Vorbis, Ogg Theora oraz
-opartych na Ogg formatach Annodex, co pozwala analizowaÊ (ale nie
-dekodowaÊ) pliki w tych formatach. Kodowanie i dekodowanie ich
+opartych na Ogg formatach Annodex, co pozwala analizowaƒá (ale nie
+dekodowaƒá) pliki w tych formatach. Kodowanie i dekodowanie ich
 wymaga dodatkowych bibliotek - odpowiednio: libspeex, libvorbis,
 libtheora, libannodex.
 
 %package devel
 Summary:	Header files for liboggz library
-Summary(pl):	Pliki nag≥Ûwkowe biblioteki liboggz
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe biblioteki liboggz
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libogg-devel >= 2:1.0
@@ -45,19 +45,19 @@ Requires:	libogg-devel >= 2:1.0
 %description devel
 Header files for liboggz library.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe biblioteki liboggz.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe biblioteki liboggz.
 
 %package static
 Summary:	Static liboggz library
-Summary(pl):	Statyczna biblioteka liboggz
+Summary(pl.UTF-8):   Statyczna biblioteka liboggz
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static liboggz library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka liboggz.
 
 %prep
