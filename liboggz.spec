@@ -1,5 +1,5 @@
 Summary:	A library for reading and writing Ogg encapsulated data
-Summary(pl.UTF-8):   Biblioteka do odczytu i zapisu danych w opakowaniu Ogg
+Summary(pl.UTF-8):	Biblioteka do odczytu i zapisu danych w opakowaniu Ogg
 Name:		liboggz
 Version:	0.9.5
 Release:	1
@@ -37,7 +37,7 @@ libtheora, libannodex.
 
 %package devel
 Summary:	Header files for liboggz library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki liboggz
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki liboggz
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libogg-devel >= 2:1.0
@@ -50,7 +50,7 @@ Pliki nagłówkowe biblioteki liboggz.
 
 %package static
 Summary:	Static liboggz library
-Summary(pl.UTF-8):   Statyczna biblioteka liboggz
+Summary(pl.UTF-8):	Statyczna biblioteka liboggz
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
