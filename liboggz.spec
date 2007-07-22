@@ -1,3 +1,6 @@
+# Conditional build:
+%bcond_without	static_libs	# don't build static library
+#
 Summary:	A library for reading and writing Ogg encapsulated data
 Summary(pl.UTF-8):	Biblioteka do odczytu i zapisu danych w opakowaniu Ogg
 Name:		liboggz
@@ -8,6 +11,7 @@ Group:		Libraries
 Source0:	http://annodex.net/software/liboggz/download/%{name}-%{version}.tar.gz
 # Source0-md5:	781fab29dea3c5e9d39ecbd1d007fb98
 URL:		http://annodex.net/software/liboggz/index.html
+BuildRequires:	docbook-to-man
 BuildRequires:	libogg-devel >= 2:1.0
 BuildRequires:	pkgconfig
 Requires:	libogg >= 2:1.0
@@ -64,7 +68,8 @@ Statyczna biblioteka liboggz.
 %setup -q
 
 %build
-%configure
+%configure \
+	%{!?with_static_libs:--disable-static}
 %{__make}
 
 %install
@@ -96,6 +101,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/oggz
 %{_pkgconfigdir}/oggz.pc
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/liboggz.a
+%endif
