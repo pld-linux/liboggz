@@ -5,12 +5,12 @@
 Summary:	A library for reading and writing Ogg encapsulated data
 Summary(pl.UTF-8):	Biblioteka do odczytu i zapisu danych w opakowaniu Ogg
 Name:		liboggz
-Version:	0.9.5
+Version:	0.9.6
 Release:	1
 License:	BSD
 Group:		Libraries
 Source0:	http://annodex.net/software/liboggz/download/%{name}-%{version}.tar.gz
-# Source0-md5:	781fab29dea3c5e9d39ecbd1d007fb98
+# Source0-md5:	b7ecad4509b9bc67e487b8c5e445c6da
 URL:		http://annodex.net/software/liboggz/index.html
 BuildRequires:	docbook-to-man
 BuildRequires:	libogg-devel >= 2:1.0
@@ -92,6 +92,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS COPYING ChangeLog README
 %attr(755,root,root) %{_bindir}/oggz*
 %attr(755,root,root) %{_libdir}/liboggz.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/liboggz.so.1
 %{_mandir}/man1/oggz*.1*
 
 %files devel
