@@ -5,15 +5,19 @@
 Summary:	A library for reading and writing Ogg encapsulated data
 Summary(pl.UTF-8):	Biblioteka do odczytu i zapisu danych w opakowaniu Ogg
 Name:		liboggz
-Version:	0.9.8
+Version:	1.0.0
 Release:	1
 License:	BSD
 Group:		Libraries
-Source0:	http://annodex.net/software/liboggz/download/%{name}-%{version}.tar.gz
-# Source0-md5:	e25a5d76f71c4300f313280d5e471a76
+Source0:	http://downloads.xiph.org/releases/liboggz/%{name}-%{version}.tar.gz
+# Source0-md5:	57359f6f0824b3e9bad85b49a6418514
+Patch0:		%{name}-destdir.patch
 URL:		http://annodex.net/software/liboggz/index.html
+BuildRequires:	autoconf >= 2.53
+BuildRequires:	automake
 BuildRequires:	docbook-to-man
 BuildRequires:	libogg-devel >= 2:1.0
+BuildRequires:	libtool
 BuildRequires:	pkgconfig
 Requires:	libogg >= 2:1.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -67,8 +71,17 @@ Statyczna biblioteka liboggz.
 
 %prep
 %setup -q
+%patch0 -p1
+
+# AC_SYS_EXTRA_LARGEFILE, AS_AC_EXPAND
+tail -n +8953 aclocal.m4 | head -n 159 >> acinclude.m4
 
 %build
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure \
 	%{!?with_static_libs:--disable-static}
 %{__make}
@@ -79,7 +92,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -rf $RPM_BUILD_ROOT%{_docdir}/liboggz
+%{__rm} -rf $RPM_BUILD_ROOT%{_docdir}/liboggz
 
 %clean
 rm -rf $RPM_BUILD_ROOT
