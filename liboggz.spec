@@ -12,7 +12,7 @@ Group:		Libraries
 Source0:	http://downloads.xiph.org/releases/liboggz/%{name}-%{version}.tar.gz
 # Source0-md5:	57359f6f0824b3e9bad85b49a6418514
 Patch0:		%{name}-destdir.patch
-URL:		http://annodex.net/software/liboggz/index.html
+URL:		http://www.xiph.org/oggz/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
 BuildRequires:	docbook-to-man
