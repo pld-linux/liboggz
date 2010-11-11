@@ -5,12 +5,12 @@
 Summary:	A library for reading and writing Ogg encapsulated data
 Summary(pl.UTF-8):	Biblioteka do odczytu i zapisu danych w opakowaniu Ogg
 Name:		liboggz
-Version:	1.1.0
+Version:	1.1.1
 Release:	1
 License:	BSD
 Group:		Libraries
 Source0:	http://downloads.xiph.org/releases/liboggz/%{name}-%{version}.tar.gz
-# Source0-md5:	f97f1d57820a9fc1d080409cf203b38a
+# Source0-md5:	3649a657f8e368b881ba8b1b57381ff7
 Patch0:		%{name}-destdir.patch
 URL:		http://www.xiph.org/oggz/
 BuildRequires:	autoconf >= 2.53
@@ -73,12 +73,9 @@ Statyczna biblioteka liboggz.
 %setup -q
 %patch0 -p1
 
-# AC_SYS_EXTRA_LARGEFILE, AS_AC_EXPAND
-tail -n +8953 aclocal.m4 | head -n 159 >> acinclude.m4
-
 %build
 %{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
