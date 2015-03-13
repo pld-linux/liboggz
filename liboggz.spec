@@ -6,7 +6,7 @@ Summary:	A library for reading and writing Ogg encapsulated data
 Summary(pl.UTF-8):	Biblioteka do odczytu i zapisu danych w opakowaniu Ogg
 Name:		liboggz
 Version:	1.1.1
-Release:	1
+Release:	2
 License:	BSD
 Group:		Libraries
 Source0:	http://downloads.xiph.org/releases/liboggz/%{name}-%{version}.tar.gz
