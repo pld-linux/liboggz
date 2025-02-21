@@ -15,7 +15,6 @@ Patch0:		%{name}-destdir.patch
 URL:		http://www.xiph.org/oggz/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
-BuildRequires:	docbook-to-man
 BuildRequires:	libogg-devel >= 2:1.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
