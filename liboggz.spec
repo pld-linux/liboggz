@@ -1,23 +1,24 @@
 #
 # Conditional build:
-%bcond_without	static_libs	# don't build static library
+%bcond_without	static_libs	# static library
 #
 Summary:	A library for reading and writing Ogg encapsulated data
 Summary(pl.UTF-8):	Biblioteka do odczytu i zapisu danych w opakowaniu Ogg
 Name:		liboggz
-Version:	1.1.2
+Version:	1.1.3
 Release:	1
 License:	BSD
 Group:		Libraries
-Source0:	http://downloads.xiph.org/releases/liboggz/%{name}-%{version}.tar.gz
-# Source0-md5:	89355413ddaff2b694a311e19803a71f
-URL:		http://www.xiph.org/oggz/
-BuildRequires:	autoconf >= 2.53
+Source0:	https://downloads.xiph.org/releases/liboggz/%{name}-%{version}.tar.gz
+# Source0-md5:	084cfcf9ea347345eac4984bfa578477
+URL:		https://www.xiph.org/oggz/
+BuildRequires:	autoconf >= 2.71
 BuildRequires:	automake
 BuildRequires:	doxygen
 BuildRequires:	libogg-devel >= 2:1.0
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:2
 BuildRequires:	pkgconfig
+BuildRequires:	rpm-build >= 4.6
 Requires:	libogg >= 2:1.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -68,6 +69,18 @@ Static liboggz library.
 %description static -l pl.UTF-8
 Statyczna biblioteka liboggz.
 
+%package apidocs
+Summary:	API documentation for liboggz library
+Summary(pl.UTF-8):	Dokumentacja API biblioteki liboggz
+Group:		Documentation
+BuildArch:	noarch
+
+%description apidocs
+API documentation for liboggz library.
+
+%description apidocs -l pl.UTF-8
+Dokumentacja API biblioteki liboggz.
+
 %prep
 %setup -q
 
@@ -87,6 +100,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/liboggz.la
+
 %{__rm} -rf $RPM_BUILD_ROOT%{_docdir}/liboggz
 
 %clean
@@ -105,9 +121,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc doc/liboggz/html/*
 %attr(755,root,root) %{_libdir}/liboggz.so
-%{_libdir}/liboggz.la
 %{_includedir}/oggz
 %{_pkgconfigdir}/oggz.pc
 
@@ -116,3 +130,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_libdir}/liboggz.a
 %endif
+
+%files apidocs
+%defattr(644,root,root,755)
+%doc doc/liboggz/html/*
